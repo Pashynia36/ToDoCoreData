@@ -41,6 +41,22 @@ class ToDoTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    
+        if editingStyle == .delete {
+            let task = tasks[indexPath.row]
+            context.delete(task)
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            
+            do {
+                tasks = try context.fetch(Task.fetchRequest())
+            } catch {
+                print("Fetching failed")
+            }
+        }
+        tableView.reloadData()
+    }
+    
     func getData() {
         
         do {
