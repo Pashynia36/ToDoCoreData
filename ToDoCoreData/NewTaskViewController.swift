@@ -14,6 +14,7 @@ class NewTaskViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var taskField: UITextField!
     @IBOutlet weak var descrField: UITextField!
     @IBOutlet weak var addLabel: UIButton!
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -21,17 +22,6 @@ class NewTaskViewController: UIViewController, UITextFieldDelegate {
         descrField.delegate = self
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
@@ -42,8 +32,8 @@ class NewTaskViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func addButton(_ sender: Any) {
         
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let task = Task(context: context) // Link Task & Context
+        let context = AppDelegate.viewContext
+        let task = Task(context: context)
         if let checkOne = taskField.text {
             task.task = checkOne
             if let checkTwo = descrField.text {

@@ -11,7 +11,7 @@ import CoreData
 
 class ToDoTableViewController: UITableViewController {
 
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = AppDelegate.viewContext
     var tasks: [Task] = []
     
     override func viewDidLoad() {
@@ -24,20 +24,20 @@ class ToDoTableViewController: UITableViewController {
         getData()
         tableView.reloadData()
     }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return tasks.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskTableViewCell
         let task = tasks[indexPath.row]
         cell.taskLabel.text = task.task
         if let text = task.descr {
             cell.descrLabel.text = text
         }
-
         return cell
     }
     
@@ -48,11 +48,7 @@ class ToDoTableViewController: UITableViewController {
             context.delete(task)
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
-            do {
-                tasks = try context.fetch(Task.fetchRequest())
-            } catch {
-                print("Fetching failed")
-            }
+            getData()
         }
         tableView.reloadData()
     }
