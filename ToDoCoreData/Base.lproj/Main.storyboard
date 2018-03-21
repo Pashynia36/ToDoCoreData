@@ -27,30 +27,37 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jId-ss-nJH">
-                                            <rect key="frame" x="5" y="0.0" width="365" height="21"/>
+                                            <rect key="frame" x="5" y="0.0" width="266" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbc-5C-c4e">
-                                            <rect key="frame" x="5" y="22" width="365" height="21"/>
+                                            <rect key="frame" x="5" y="22" width="266" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bM6-v6-fsK">
+                                            <rect key="frame" x="276" y="6" width="51" height="31"/>
+                                        </switch>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="jId-ss-nJH" firstAttribute="leading" secondItem="mv7-1F-Pag" secondAttribute="leading" constant="5" id="0s7-VL-tw2"/>
                                         <constraint firstAttribute="bottom" secondItem="Wbc-5C-c4e" secondAttribute="bottom" id="AdH-Rb-mso"/>
-                                        <constraint firstAttribute="trailing" secondItem="Wbc-5C-c4e" secondAttribute="trailing" constant="5" id="H3V-Ic-hLZ"/>
-                                        <constraint firstAttribute="trailing" secondItem="jId-ss-nJH" secondAttribute="trailing" constant="5" id="Kse-VA-8qo"/>
+                                        <constraint firstItem="bM6-v6-fsK" firstAttribute="top" secondItem="mv7-1F-Pag" secondAttribute="top" constant="6" id="Byx-Zz-3Z5"/>
+                                        <constraint firstAttribute="bottom" secondItem="bM6-v6-fsK" secondAttribute="bottom" constant="6.5" id="E8j-eO-kfe"/>
                                         <constraint firstItem="Wbc-5C-c4e" firstAttribute="top" secondItem="jId-ss-nJH" secondAttribute="bottom" constant="1" id="R8H-na-h30"/>
+                                        <constraint firstItem="bM6-v6-fsK" firstAttribute="leading" secondItem="Wbc-5C-c4e" secondAttribute="trailing" constant="5" id="l6p-oS-Jii"/>
+                                        <constraint firstItem="bM6-v6-fsK" firstAttribute="leading" secondItem="jId-ss-nJH" secondAttribute="trailing" constant="5" id="nX7-qR-K6k"/>
+                                        <constraint firstAttribute="trailing" secondItem="bM6-v6-fsK" secondAttribute="trailing" constant="50" id="osL-Ee-hRD"/>
                                         <constraint firstItem="Wbc-5C-c4e" firstAttribute="leading" secondItem="mv7-1F-Pag" secondAttribute="leading" constant="5" id="uSm-hT-odx"/>
                                         <constraint firstItem="jId-ss-nJH" firstAttribute="top" secondItem="mv7-1F-Pag" secondAttribute="top" id="zMh-I0-CiL"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="descrLabel" destination="Wbc-5C-c4e" id="XFw-Fl-tfn"/>
+                                    <outlet property="switchIfDone" destination="bM6-v6-fsK" id="cSL-76-3Bm"/>
                                     <outlet property="taskLabel" destination="jId-ss-nJH" id="OEU-od-A4Z"/>
                                 </connections>
                             </tableViewCell>

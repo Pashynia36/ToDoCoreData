@@ -12,6 +12,7 @@ class TaskTableViewCell: UITableViewCell {
 
     @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var descrLabel: UILabel!
+    @IBOutlet weak var switchIfDone: UISwitch!
     
     override func awakeFromNib() {
         super.awakeFromNib()
