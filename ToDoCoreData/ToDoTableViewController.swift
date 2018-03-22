@@ -33,7 +33,10 @@ class ToDoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskTableViewCell
-        cell.prepareForCell(task: tasks[indexPath.row], indexPath: indexPath.row, switchHandler: { (index, isOn) in self.tasks[index].isDone = isOn })
+        cell.prepareForCell(task: tasks[indexPath.row], indexPath: indexPath.row, switchHandler: { (index, isOn) in
+            self.tasks[index].isDone = isOn
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        })
         return cell
     }
 
