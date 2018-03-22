@@ -33,21 +33,16 @@ class ToDoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskTableViewCell
-        let task = tasks[indexPath.row]
-        cell.taskLabel.text = task.task
-        if let text = task.descr {
-            cell.descrLabel.text = text
-        }
+        cell.prepareForCell(task: tasks[indexPath.row], indexPath: indexPath.row, switchHandler: { (index, isOn) in self.tasks[index].isDone = isOn })
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     
         if editingStyle == .delete {
             let task = tasks[indexPath.row]
             context.delete(task)
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            
             getData()
         }
         tableView.reloadData()

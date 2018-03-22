@@ -20,9 +20,9 @@ class NewTaskViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         taskField.delegate = self
         descrField.delegate = self
-        // Do any additional setup after loading the view.
     }
 
+    // Hiding the keyboard by pressing return(enter) button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
@@ -40,10 +40,10 @@ class NewTaskViewController: UIViewController, UITextFieldDelegate {
                 task.descr = checkTwo
             }
         }
-        
+        task.isDone = false
         // Save the data to coredata
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        
+        // popping tableView
         let _ = navigationController?.popViewController(animated: true)
     }
 }

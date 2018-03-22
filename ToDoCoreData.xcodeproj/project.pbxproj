@@ -65,12 +65,20 @@
 				4E8896C720628AB00021E532 /* ToDoTableViewController.swift */,
 				4E8896C920628ACF0021E532 /* NewTaskViewController.swift */,
 				4E8896CB20628BEB0021E532 /* TaskTableViewCell.swift */,
-				4E8896BC206288EA0021E532 /* Assets.xcassets */,
-				4E8896BE206288EA0021E532 /* LaunchScreen.storyboard */,
+				4E9711172063A2E300DF4F64 /* Supporting Files */,
 				4E8896C1206288EA0021E532 /* Info.plist */,
 				4E8896B9206288EA0021E532 /* ToDoCoreData.xcdatamodeld */,
 			);
 			path = ToDoCoreData;
+			sourceTree = "<group>";
+		};
+		4E9711172063A2E300DF4F64 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E8896BC206288EA0021E532 /* Assets.xcassets */,
+				4E8896BE206288EA0021E532 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

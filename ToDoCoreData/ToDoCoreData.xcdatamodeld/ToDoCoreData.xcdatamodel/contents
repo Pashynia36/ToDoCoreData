@@ -2,9 +2,10 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Task" representedClassName="Task" syncable="YES" codeGenerationType="class">
         <attribute name="descr" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isDone" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="task" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Task" positionX="-12456" positionY="-5346" width="128" height="73"/>
+        <element name="Task" positionX="-12456" positionY="-5346" width="128" height="88"/>
     </elements>
 </model>
