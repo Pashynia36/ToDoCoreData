@@ -35,7 +35,8 @@ class ToDoTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskTableViewCell
         cell.prepareForCell(task: tasks[indexPath.row], indexPath: indexPath.row, switchHandler: { (index, isOn) in
             self.tasks[index].isDone = isOn
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            self.updateData(index: indexPath.row, switchStatus: isOn)
+            
         })
         return cell
     }
@@ -49,6 +50,20 @@ class ToDoTableViewController: UITableViewController {
             getData()
         }
         tableView.reloadData()
+    }
+    
+    func updateData(index: Int, switchStatus: Bool) {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Task")
+        let result = try? context.fetch(fetchRequest)
+        let resultData = result as! [Task]
+        resultData[index].isDone = switchStatus
+        do {
+            try context.save()
+            print("Data change saved!")
+        } catch  {
+            print("Could not save data.")
+        }
     }
     
     func getData() {
